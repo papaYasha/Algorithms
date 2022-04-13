@@ -8,7 +8,7 @@
 import Foundation
 
 // Задача 1.
-// Написать функцию, которая принимает строку как своей единственный параметр и возвращает true, если строка содержит только уникальные символы.
+// Написать функцию, которая принимает строку как своей единственный параметр и возвращает true если строка содержит только уникальные символы.
 
 func checkUniqueString(input: String) -> Bool {
     var checkedSymbols = [Character]()
@@ -33,4 +33,19 @@ func checkPolindrom(input: String) -> Bool {
     return String(lowercased.reversed()) == lowercased
 }
 
-print(checkPolindrom(input: "anna"))
+// Задача 3.
+// Написать функцию, которая принимает две строки и возвращает true если эти строки содержат одни и те же символы в любом порядке с учетом регистра.
+
+func checkStringSimilarity(string1: String, string2: String) -> Bool {
+    var checkString = string2
+    for letter in string1 {
+        if let index = checkString.firstIndex(of: letter) {
+            checkString.remove(at: index)
+        } else {
+            return false
+        }
+    }
+    return checkString.count == 0
+}
+
+print(checkStringSimilarity(string1: "qwert", string2: "qwerty"))
