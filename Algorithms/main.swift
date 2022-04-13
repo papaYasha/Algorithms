@@ -25,4 +25,12 @@ func checkUniqueStringSet(input: String) -> Bool {
     return Set(input).count == input.count
 }
 
+// Задача 2.
+// Написать функцию, которая принмиает строку как свой единственный параметр и возвращает true если эта строка может быть прочитана одинакого как слева направо, так и српаво налево, игнорирую регистр)
 
+func checkPolindrom(input: String) -> Bool {
+    let lowercased = input.lowercased()
+    return String(lowercased.reversed()) == lowercased
+}
+
+print(checkPolindrom(input: "anna"))
