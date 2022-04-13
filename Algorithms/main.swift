@@ -48,4 +48,20 @@ func checkStringSimilarity(string1: String, string2: String) -> Bool {
     return checkString.count == 0
 }
 
-print(checkStringSimilarity(string1: "qwert", string2: "qwerty"))
+func checkStringSimilarity2(string1: String, string2: String) -> Bool {
+    return string1.sorted() == string2.sorted()
+}
+
+// Задача 4.
+// Написать функцию, которая принимает одну строку и возвращает true если эта строка полностью содержится в другой строке, игнорирую регистр.
+
+func checkStringContainAnotherString(input1: String, input2: String) {
+    let str1 = "Hello, Swift"
+    print(str1.customContains("swift"))
+}
+
+extension String {
+    func customContains(_ string: String) -> Bool {
+        return self.lowercased().contains(string.lowercased())
+    }
+}
