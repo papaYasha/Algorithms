@@ -92,4 +92,32 @@ func sort1(string: String) -> String {
     return String(used)
 }
 
+// Задача 7 - Сокращение количество пробелов до одного
+// Написать функцию, которая принимает строку как свой единственный параметр и возвращает ту же самую строку только с замененными множественными пробелами на единичный пробел
 
+func deleteExtraSpaces(string: String) -> String {
+    var seenSpace = false
+    var returnValue = ""
+    
+    for letter in string {
+        if letter == " " {
+            if seenSpace { continue }
+            seenSpace = true
+        } else {
+            seenSpace = false
+        }
+        returnValue.append(letter)
+    }
+    return returnValue
+}
+
+// Задача 8 - Является ли строка панграммой?
+// Написать функцию, которая принимает строку и возвращает true если эта строка является панграммой, игнорирую регистр (панграмма - фраза, содержащая в себе все буквы алфавита)
+
+func checkPangramm(input: String) -> Bool {
+    let set = Set(input.lowercased())
+    let letters = set.filter {
+        $0 >= "a" && $0 <= "z"
+    }
+    return letters.count == 26
+}
