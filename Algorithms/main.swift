@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Задача 1.
+// Задача 1 - Проверка уникальных символов в строке
 // Написать функцию, которая принимает строку как своей единственный параметр и возвращает true если строка содержит только уникальные символы.
 
 func checkUniqueString(input: String) -> Bool {
@@ -25,7 +25,7 @@ func checkUniqueStringSet(input: String) -> Bool {
     return Set(input).count == input.count
 }
 
-// Задача 2.
+// Задача 2 - Проверка полиндрома
 // Написать функцию, которая принмиает строку как свой единственный параметр и возвращает true если эта строка может быть прочитана одинакого как слева направо, так и српаво налево, игнорирую регистр)
 
 func checkPolindrom(input: String) -> Bool {
@@ -33,7 +33,7 @@ func checkPolindrom(input: String) -> Bool {
     return String(lowercased.reversed()) == lowercased
 }
 
-// Задача 3.
+// Задача 3 - Проверка одинаковых символов в строке
 // Написать функцию, которая принимает две строки и возвращает true если эти строки содержат одни и те же символы в любом порядке с учетом регистра.
 
 func checkStringSimilarity(string1: String, string2: String) -> Bool {
@@ -52,7 +52,7 @@ func checkStringSimilarity2(string1: String, string2: String) -> Bool {
     return string1.sorted() == string2.sorted()
 }
 
-// Задача 4.
+// Задача 4 - Одна строка полностью содержит другую
 // Написать функцию, которая принимает одну строку и возвращает true если эта строка полностью содержится в другой строке, игнорирую регистр.
 
 func checkStringContainAnotherString(input1: String, input2: String) {
@@ -64,4 +64,17 @@ extension String {
     func customContains(_ string: String) -> Bool {
         return self.lowercased().contains(string.lowercased())
     }
+}
+
+// Задача 5 - Сколько раз символ встречается в строке?
+// Написать функцию, которая принимает строку и символ, а далее возвращает количетсво раз, которое данный символ встречается в строке, с учетом регистра.
+
+func countLetterInString(input: String, character: Character) -> Int {
+    var letterCount = 0
+    for letter in input {
+        if letter == character {
+            letterCount += 1
+        }
+    }
+    return letterCount
 }
