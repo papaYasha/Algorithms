@@ -78,3 +78,18 @@ func countLetterInString(input: String, character: Character) -> Int {
     }
     return letterCount
 }
+
+// Задача 6 - Удаление повторяющихся символов из строки
+// Написать функцию, которая приимает строку как свой единственный параметр и возвращает ту же самую строку с удаленными повторяющимися символами (например: "hello" -> "helo")
+
+func sort1(string: String) -> String {
+    var used = [Character]()
+    for letter in string {
+        if !used.contains(letter) {
+            used.append(letter)
+        }
+    }
+    return String(used)
+}
+
+
