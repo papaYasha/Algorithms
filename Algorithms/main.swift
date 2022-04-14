@@ -121,3 +121,23 @@ func checkPangramm(input: String) -> Bool {
     }
     return letters.count == 26
 }
+
+// Задача 9 - Количество гласных и согласных
+//Написать функцию, которая принимает строку и возвращает tuple, содержащий число гласных и согласных букв данной строки.
+
+func separate(input: String) -> (vowels: Int, consonants: Int) {
+    let vowels = "aeiou"
+    let consonants = "qwrtypsdfghjklzxcvbnm"
+    
+    var vowelCount = 0
+    var consonantCount = 0
+    
+    for letter in input.lowercased() {
+        if vowels.contains(letter) {
+            vowelCount += 1
+        } else if consonants.contains(letter) {
+            consonantCount += 1
+        }
+    }
+    return(vowelCount, consonantCount)
+}
