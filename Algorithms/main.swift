@@ -141,3 +141,34 @@ func separate(input: String) -> (vowels: Int, consonants: Int) {
     }
     return(vowelCount, consonantCount)
 }
+
+// Задача 10 - Одинаковые по длине строки
+// Написать функцию, которая принимает две строки и возвращает true, если они одинаковы по длине
+
+func compareStringByLenght(string1: String, string2: String) -> Bool {
+    var boolResult = false
+    if string1.count == string2.count {
+        boolResult = true
+    }
+    return boolResult
+}
+
+// Задача 11 - Одинаковые по длине строки, но не более чем 3 различные буквы
+// Написать функцию, которая принимает две строки и возвращает true, если они одинаковы по длине, но различаются по содержанию не более, чем на 3 буквы.
+
+func compareStringByLenghtAnd3DifLetter(string1: String, string2: String) -> Bool {
+    guard string1.count == string2.count else { return false }
+    let firstArray = Array(string1)
+    let secondArray = Array(string2)
+    var differences = 0
+    
+    for (index, letter) in firstArray.enumerated() {
+        if secondArray[index] != letter {
+            differences += 1
+            if differences == 4 {
+                return false
+            }
+        }
+    }
+    return true
+}
