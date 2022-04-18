@@ -172,3 +172,26 @@ func compareStringByLenghtAnd3DifLetter(string1: String, string2: String) -> Boo
     }
     return true
 }
+
+// Задача 12 - Поиск самого длинного префикса
+// Написать функцию, которая принимает строку, состоящую из слов с похожими префиксами, разделенных пробелами и возвращает самый длинный префикс, который должен встречаться в каждом слове (например: "swift", "swim", "switch" вернет "swi")
+
+func prefix(input: String) -> String {
+    let parts = input.components(separatedBy: " ")
+    guard let first = parts.first else { return "" }
+    
+    var currentPrefix = ""
+    var bestPrefix = ""
+    
+    for letter in first {
+        currentPrefix.append(letter)
+        
+        for word in parts {
+            if !word.hasPrefix(currentPrefix) {
+                return bestPrefix
+            }
+        }
+        bestPrefix = currentPrefix
+    }
+    return bestPrefix
+}
