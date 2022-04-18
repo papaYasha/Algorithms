@@ -153,8 +153,8 @@ func compareStringByLenght(string1: String, string2: String) -> Bool {
     return boolResult
 }
 
-// Задача 11 - Одинаковые по длине строки, но не более чем 3 различные буквы
-// Написать функцию, которая принимает две строки и возвращает true, если они одинаковы по длине, но различаются по содержанию не более, чем на 3 буквы.
+// Задача 11 - Одинаковые по длине строки, но не более чем 3 различных символа.
+// Написать функцию, которая принимает две строки и возвращает true, если они одинаковы по длине, но различаются по содержанию не более, чем на 3 символа.
 
 func compareStringByLenghtAnd3DifLetter(string1: String, string2: String) -> Bool {
     guard string1.count == string2.count else { return false }
@@ -194,4 +194,29 @@ func prefix(input: String) -> String {
         bestPrefix = currentPrefix
     }
     return bestPrefix
+}
+
+// Задача 13 - Повторение символа в ряду
+// Написать функцию, которая принимает строку и возвращает строку, содержащую символ и количество его повторений в ряду(например строка "aaabbbccc" вернется в виде "a3b3c3", а строка "ff///" в виде "f2/3")
+
+func howManyTimes(input: String) -> String {
+    var currentLetter: Character?
+    var returnValue = ""
+    var letterCounter = 0
+    
+    for letter in input {
+        if letter == currentLetter {
+            letterCounter += 1
+        } else {
+            if let current = currentLetter {
+                returnValue.append("\(current)\(letterCounter)")
+            }
+            currentLetter = letter
+            letterCounter = 1
+        }
+    }
+    if let current = currentLetter {
+        returnValue.append("\(current)\(letterCounter)")
+    }
+    return returnValue
 }
