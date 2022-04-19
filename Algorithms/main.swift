@@ -262,3 +262,17 @@ func makePower(first: Double, second: Double) -> Double {
     let inPower = pow(first, second)
     return inPower
 }
+
+// Задача 18 - Поменять числа местами
+// Поменять местами 2 положительных числа (тип данных: Инт), без использования промежуточной переменной.
+
+var a = 5
+var b = 3
+
+//a = a + b
+//b = a - b
+//a = a - b
+
+//swap(&a, &b)
+
+(a, b) = (b, a)
