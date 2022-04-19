@@ -230,3 +230,19 @@ func reverse(input: String) -> String {
     return reversed.joined(separator: " ")
 }
 
+// Задача 15 - Остаток от деления
+// Написать функцию, которая счиатает от 1 до 100 и печатает "Three" если число делится на 3, "Five" если число делится на 5, "Three Five" и на 3 и на 5.
+
+func devision() {
+    for i in 1...100 {
+        if i % 3 == 0 && i % 5 == 0 {
+            print("Three Five")
+        } else if i % 3 == 0 {
+            print("Three")
+        } else if i % 5 == 0 {
+            print("five")
+        } else {
+            print(i)
+        }
+    }
+}
