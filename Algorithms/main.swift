@@ -253,3 +253,12 @@ func devision() {
 func randomNumberMinMax(min: Int, max: Int) -> Int {
     return Int.random(in: min...max)
 }
+
+// Задача 17 - Возведение одного числа в степень другого
+// Написать функцию, которая принимает два положительных числа и возводит первое числа в степень второго.
+
+func makePower(first: Double, second: Double) -> Double {
+    guard first > 0, second > 0 else { return 0 }
+    let inPower = pow(first, second)
+    return inPower
+}
