@@ -220,3 +220,13 @@ func howManyTimes(input: String) -> String {
     }
     return returnValue
 }
+
+// Задача 14 - Перевернуть слова в строке
+// Написать функцию, которая принимает строку и возвращает эту же строку, каждое слово в которой записано в обратном порядке, без использования цикла
+
+func reverse(input: String) -> String {
+    let parts = input.components(separatedBy: " ")
+    let reversed = parts.map { String($0.reversed()) }
+    return reversed.joined(separator: " ")
+}
+
