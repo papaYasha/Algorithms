@@ -335,3 +335,11 @@ func squareRoot1(input: Int) -> Int {
 func squareRoot2(input: Int) -> Int {
     return Int(pow(Double(input), 0.5))
 }
+
+// Задача 23 - Вычитание без оператора
+// Написать функцию, котороая принимает два положительных числа и возвращает число, равное разности второго и первого входных чисел без использования арифметического оператора "-"
+ 
+func subtraction(subract: Int, from: Int) -> Int {
+    return from + -1 * subract
+}
+
