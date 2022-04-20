@@ -299,4 +299,21 @@ func checkFigureInString(string: String) -> Bool {
 }
 
 // Задача 21 - Сложить числа в строке
-// Написать функцию, которая принимает строку, содержащую числа и буквы и возвращает сумму чисел в строке. 
+// Написать функцию, которая принимает строку, содержащую числа и буквы и возвращает сумму чисел в строке.
+
+func addNumbersInString(string: String) -> Int {
+    var currentNumber = ""
+    var sum = 0
+    
+    for letter in string {
+        let strLetter = String(letter)
+        if Int(strLetter) != nil {
+            currentNumber += strLetter
+        } else {
+            sum += Int(currentNumber) ?? 0
+            currentNumber = ""
+        }
+    }
+    sum += Int(currentNumber) ?? 0
+    return sum
+}
