@@ -317,3 +317,21 @@ func addNumbersInString(string: String) -> Int {
     sum += Int(currentNumber) ?? 0
     return sum
 }
+
+// Задача 22 - Вычислить квадратный корень
+// Написать функцию, которая принимает число (тип данных: Int) и возвращает квадратный корень из этого числа, округленный до ближайшего целого. Без использования функции sqrt().
+
+func squareRoot1(input: Int) -> Int {
+    guard input != 1 else { return 1 }
+    
+    for i in 0 ... input {
+        if i * i > input {
+            return i - 1
+        }
+    }
+    return 0
+}
+
+func squareRoot2(input: Int) -> Int {
+    return Int(pow(Double(input), 0.5))
+}
