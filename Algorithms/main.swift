@@ -6,6 +6,7 @@
 //
 
 import Foundation
+// MARK: - String
 
 // Задача 1 - Проверка уникальных символов в строке
 // Написать функцию, которая принимает строку как своей единственный параметр и возвращает true если строка содержит только уникальные символы.
@@ -230,6 +231,8 @@ func reverse(input: String) -> String {
     return reversed.joined(separator: " ")
 }
 
+// MARK: - Numbers
+
 // Задача 15 - Остаток от деления
 // Написать функцию, которая счиатает от 1 до 100 и печатает "Three" если число делится на 3, "Five" если число делится на 5, "Three Five" и на 3 и на 5.
 
@@ -343,3 +346,34 @@ func subtraction(subract: Int, from: Int) -> Int {
     return from + -1 * subract
 }
 
+// MARK: - Collection
+
+// Задача 24 - Повторение числа в коллекции
+// Написать расширение для коллекций (тип данных: Int), возвращающее число раз, которое определенная цифра встречалась во всех числах коллекции. Например, [5, 15, 55, 515].repetition(digit: "5") вернет число 6.
+
+extension Collection where Iterator.Element == Int {
+    func repetition(digit: Character) -> Int {
+        var total = 0
+        
+        for item in self {
+            let str = String(item)
+            
+            for letter in str {
+                if letter == digit {
+                    total += 1
+                }
+            }
+        }
+        return total
+    }
+}
+
+// Задача 25 - Сортировка коллекции по возрастанию
+// Написать расширение для коллекций, возвращабщее N наименьших элементов, остортированных по возрастанию, где N имеет тип данных Int. Например [1,4,2,3].sortUpToN вернет [1,2,3] если N = 3
+
+extension Collection where Iterator.Element: Comparable {
+    func sortUpToN(number: Int) -> [Iterator.Element] {
+        let sorted = self.sorted()
+        return Array(sorted.prefix(number))
+    }
+}
